@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
 }
 
@@ -13,7 +13,7 @@ body {
     align-items: center;
     align-content: center;
     height: 100%;
-
+    margin: 0 auto;
 }
 
 .top-title {
@@ -42,6 +42,7 @@ body {
     gap: 15px;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: center
 }
 
 .search-box input {
@@ -49,6 +50,7 @@ body {
     border: 0px;
     border-radius: 4px;
     height: 2rem;
+    width: 70%;
     color: black;
     text-align: left;
 }
@@ -75,14 +77,18 @@ body {
 
 .pizza-card {
     margin-top: 10px;
-    border: 2px solid grey;
+    border: 3px solid orange;
     margin: 0 auto;
     padding: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: auto;
-    width: 15rem;
+    width: 18rem;
+    border-radius: 5px;
+}
+
+.pizza-card img {
     border-radius: 5px;
 }
 
@@ -93,4 +99,5 @@ body {
     flex-direction: column;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     gap: 5px;
+    margin-bottom: 10px;
 }
