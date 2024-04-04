@@ -47,39 +47,70 @@ const pizzas = [
 ];
 
 /////////////////////////////////////////////////////////
-//1er paso verificar que el evento al buscar arroje un resultado
-//2do paso renderizar la card de la pizza
-//Aplicar metodo find al buscador
-//Guardar la info en el sessionstrage
 
 ///Llamados a realizar
-const searchbox = document.getElementById ('pizzaboxsearch')
+const formsearch = document.getElementById ('input_form')
+const searchinput = document.getElementById ('pizzaboxsearch')
 const renderpizza = document.querySelector ('.pizza-card')
 
+
+/////////////////////////////////////
+//Funcion INIT
+const init = () => {
+  searchinput.addEventListener('input', () => checktext(searchinput))
+} 
+
+
 //Funciones Auxiliares
-
-//Caja de busqueda
-
-
-const box_user_search = (e) => {
-  e.preventdefault
+const isEmpty = (input) => {
   
-  const numero_error = (1,2,3,4,5)
-
-  if (numero_error > 5)
-  {
-    alert ('elegi un nro del 1 al 5')
-  }
+  return !input.value.trim().lenght
 }
 
-const inputuser = searchbox.addEventListener ('submit', box_user_search)
+const Noexiste = () => {
+  renderpizza.innerHTML
+  return `<small>No existe ese producto</small>`
+}
 
+const pizzafinder = (id) => {
+  for (const pizza of pizzas) {
+    if (pizza.id === id) {
+      return pizza;
+    }
+  }
+  return null;
+}
+
+//Caja de busqueda
+const checktext = (input) => {
+  let valid = false;
+
+  const inputValue = searchinput.value;
+  const id = parseInt(inputValue);
+
+  const pizza = pizzafinder(id);
+  if (pizza) {
+    renderpizza.innerHTML = rendercard(pizza);
+  } else {
+    renderpizza.innerHTML = Noexiste();
+  }
+
+
+  /// esto no me funca
+  if (pizzas.ingredientes) {
+    renderpizza.innerHTML = rendercard (pizzas);
+  }
+
+  return valid;
+}
 
 
 
 //Renderizado de las cards
 const rendercard = (pizza) => {
   const {id, nombre, precio, ingredientes, imagen} = pizza
+
+
   return `
   <img src="${imagen}" alt="">
   <div class="pizza-info">
@@ -90,4 +121,5 @@ const rendercard = (pizza) => {
 }
 
 renderpizza.innerHTML = pizzas.map(rendercard).join('')
-
+//////////////////
+init ()
