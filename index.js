@@ -114,7 +114,7 @@ const rendercard = (pizza) => {
   return `
   <img src="${imagen}" alt="">
   <div class="pizza-info">
-      <h4>${nombre}</h4>
+      <h4>N°${id} ${nombre} </h4>
       <span>${ingredientes}</span>
       <span>Precio $${precio}</span>
   </div>`
